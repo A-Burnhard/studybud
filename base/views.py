@@ -19,4 +19,7 @@ def loginPage(request):
         password = request.POST.get('password')
 
         try:
-            user= user.objects
+            user= user.objects.get(email=email)
+        
+        except:
+            messages.error(request, 'User does not exist')
